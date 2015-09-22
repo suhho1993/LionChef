@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>154</y>
+      <w>209</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>Chef
+--
+-Dish dish
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>209</x>
+      <y>143</y>
+      <w>110</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Dish
+--
+-name:String
+--
++Dish()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>154</x>
+      <y>330</y>
+      <w>231</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>DishCreator
+--
++createDish(name:String):Dish</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>583</x>
+      <y>330</y>
+      <w>242</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>RandomFilter
+--
++filterStrings(array:String*):String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>913</x>
+      <y>165</y>
+      <w>253</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>RecipeDisplay
+--
++displayRecipe(dish:Dish):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>924</x>
+      <y>22</y>
+      <w>220</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>MapDisplay
+--
++displayMap(dish:Dish):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>957</x>
+      <y>308</y>
+      <w>198</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>ImFeelingLucky
+--
+-randomArray:String*
+--
++getRandomArray():String*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>308</x>
+      <y>165</y>
+      <w>319</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>693</x>
+      <y>198</y>
+      <w>33</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>209</y>
+      <w>33</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>374</x>
+      <y>352</y>
+      <w>231</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>737</x>
+      <y>44</y>
+      <w>209</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>803</x>
+      <y>176</y>
+      <w>132</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>198</y>
+      <w>209</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>170.0;150.0;110.0;150.0;110.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
