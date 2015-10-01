@@ -7,11 +7,20 @@
       <x>605</x>
       <y>154</y>
       <w>209</w>
-      <h>55</h>
+      <h>209</h>
     </coordinates>
     <panel_attributes>Chef
 --
--Dish dish
+-dish: Dish
+-filter: RandomFilter
+-lucky: ImFeelingLucky
+-recipeDis: RecipeDisplay
+-mapDis: MapDisplay
+--
++displayMap():void
++displayRecipe():void
++imFeelingLucky():String*
++setDish():void
 
 </panel_attributes>
     <additional_attributes/>
@@ -48,11 +57,13 @@
     <id>UMLClass</id>
     <coordinates>
       <x>583</x>
-      <y>330</y>
+      <y>429</y>
       <w>242</w>
-      <h>66</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>RandomFilter
+--
+dishCreator:DishCreator
 --
 +filterStrings(array:String*):String</panel_attributes>
     <additional_attributes/>
@@ -116,12 +127,12 @@ m2=1
     <id>Relation</id>
     <coordinates>
       <x>693</x>
-      <y>198</y>
+      <y>352</y>
       <w>33</w>
-      <h>154</h>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -140,10 +151,12 @@ m2=1
       <x>374</x>
       <y>352</y>
       <w>231</w>
-      <h>33</h>
+      <h>143</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0;140.0;100.0;190.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -172,14 +185,14 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>770</x>
-      <y>198</y>
-      <w>209</w>
-      <h>198</h>
+      <x>803</x>
+      <y>253</y>
+      <w>176</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>170.0;150.0;110.0;150.0;110.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+    <additional_attributes>140.0;100.0;80.0;100.0;80.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
