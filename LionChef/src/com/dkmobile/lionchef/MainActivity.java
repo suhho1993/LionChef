@@ -32,3 +32,33 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 }
+
+class Dish{
+    String name=getname("dish");
+    String getname(String name){
+        return name;
+    }
+}
+class Chef {
+   
+    
+    Dish mDish = new Dish();
+    
+    
+}
+
+class RandomFilter{
+    
+}
+
+class DishCreator{
+    Dish MakeDish(String name){
+		Dish mDish = new Dish();
+		mDish.name=name;
+    	return mDish;    	
+    }
+}
+
+class IFL{
+    
+}
