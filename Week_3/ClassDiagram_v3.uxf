@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>13</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1755</x>
+      <y>637</y>
+      <w>247</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>MainDisplay
+--
+dish:Dish
+array:String*
+-display:Display
+--
++displayMap():void
++displayRecipe():void
++displayDish():void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>390</y>
+      <w>234</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Dish
+--
+-name:String
+-url:URL
+--
++Dish()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>13</x>
+      <y>689</y>
+      <w>351</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>DishCreator
+--
+_+createDish(name:String, url:URL):Dish_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>533</x>
+      <y>871</y>
+      <w>286</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>RandomFilter
+--
+_+filterStrings(array:String*):String_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2249</x>
+      <y>572</y>
+      <w>299</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>RecipeDisplay
+--
+display(dish:Dish):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2574</x>
+      <y>572</y>
+      <w>260</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>MapDisplay
+--
++display(dish:Dish):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>182</x>
+      <y>507</y>
+      <w>39</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1989</x>
+      <y>585</y>
+      <w>286</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>200.0;10.0;90.0;10.0;90.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2132</x>
+      <y>312</y>
+      <w>234</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+Display
+--
++display(dish:Dish):void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>429</x>
+      <y>52</y>
+      <w>403</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>RecipeManager
+--
+-HashMap&lt;String,URL&gt;
+--
++getURL(string:String):URL
++addURL(string:String, url:URL):boolean
++removeURL(string:String):boolean
++updateURL(string:String, url:URL):boolean
++getRandom():string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2353</x>
+      <y>338</y>
+      <w>325</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;10.0;230.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2184</x>
+      <y>377</y>
+      <w>156</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;100.0;90.0;100.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>507</x>
+      <y>403</y>
+      <w>325</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes>CoreLogic
+--
+-dish:Dish
+-array:String*
+-manager:RecipeManager
+--
+-setArray(array:String*):void
+-getArray():String*
+-setDish():void
+-getDish():Dish
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1859</x>
+      <y>338</y>
+      <w>299</w>
+      <h>325</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>210.0;10.0;10.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1989</x>
+      <y>624</y>
+      <w>728</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>540.0;10.0;540.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1690</x>
+      <y>260</y>
+      <w>1209</w>
+      <h>780</h>
+    </coordinates>
+    <panel_attributes>GUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>1131</w>
+      <h>1040</h>
+    </coordinates>
+    <panel_attributes>Core</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>663</x>
+      <y>611</y>
+      <w>39</w>
+      <h>286</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>351</x>
+      <y>546</y>
+      <w>182</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;130.0;40.0;130.0;40.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1209</x>
+      <y>455</y>
+      <w>416</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>Controller
+--
+-logic:CoreLogic
+-view:MainDisplay
+--
++Controller(logic:CoreLogic,view:MainDisplay)
++updateLogicArray()
++updateViewDish()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>819</x>
+      <y>494</y>
+      <w>416</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1443</x>
+      <y>637</y>
+      <w>338</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>240.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>234</y>
+      <w>39</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1326</x>
+      <y>299</y>
+      <w>156</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>ChangeListener</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
