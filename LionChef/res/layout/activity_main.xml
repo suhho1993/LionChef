@@ -26,10 +26,25 @@
         android:inputType="textMultiLine" />
 
     <Button
+        android:id="@+id/Go_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Go" 
+        android:onClick="onClick"/>
+    <Button
+        android:id="@+id/Man_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Manage Recipe" 
+        android:onClick="onClick"/>
+    <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="What&apos;s my meal?" />
+        android:text="Go" />
+    
 
 </LinearLayout>
