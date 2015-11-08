@@ -3,7 +3,7 @@ package com.dkmobile.lionchef;
 import android.app.Activity;
 import logic.Dish;
 
-public class RecipeActivity extends Activity implements Display{
+public class RecipeActivity extends Activity{
 
 	private Dish currentDish;
 	
@@ -12,12 +12,13 @@ public class RecipeActivity extends Activity implements Display{
 		super();
 		this.currentDish = currentDish;
 	}
-
-
-	@Override
-	public void display() {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * Displays ExceptionActivity Interface when an exception occurs 
+	 */
+	public void DisplayError(String message){
+		//TODO
 	}
+
+
 
 }
