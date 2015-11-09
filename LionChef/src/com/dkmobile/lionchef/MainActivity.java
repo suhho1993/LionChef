@@ -20,12 +20,23 @@ public class MainActivity extends Activity{
 	private Controller controller;
 	private Dish currentDish;
 	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+	}
+	
+	
 	/**
 	 * Displays the GUI Interface of the current dish 
 	 */
 	void displayDish() {
 		// TODO
 	}
+
+	
 
 	/**
 	 * Displays the GUI Interface of the dish manager
