@@ -9,42 +9,54 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to LionChef" />
+        android:text="@string/greeting" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="please type in dishes you like to have" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <Button
-        android:id="@+id/Go_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Go" 
-        android:onClick="onClick"/>
-    <Button
-        android:id="@+id/Man_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Manage Recipe" 
-        android:onClick="onClick"/>
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Go" />
+        android:text="@string/introduction" />
     
+	<LinearLayout
+	    android:orientation="horizontal"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"  
+	     >
+
+	    <EditText
+	        android:id="@+id/textbox"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:ems="12"
+	        android:inputType="textCapWords" />
+	
+	    <Button
+	        android:id="@+id/Go_btn"
+			android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/go" 
+	        android:onClick="onClick"/>
+    </LinearLayout>
+    
+	<LinearLayout
+	    android:orientation="horizontal"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    >
+	    
+	    <Button
+	        android:id="@+id/man_btn"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/recipe_manager" 
+	        android:onClick="onClick"/>
+	    
+	    <Button
+	        android:id="@+id/feeln_btn"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/feeln_lucky" />
+	    
+    </LinearLayout>
 
 </LinearLayout>
