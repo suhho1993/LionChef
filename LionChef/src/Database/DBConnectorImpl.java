@@ -1,6 +1,11 @@
 package Database;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import logic.Dish;
 
@@ -14,13 +19,14 @@ public class DBConnectorImpl implements DBConnector{
 	
 	@Override
 	public void open() {
-		// TODO Auto-generated method stub
+		database = new Database();
 		
 	}
 
 	@Override
 	public void close() {
-		// TODO Auto-generated method stub
+		database.deleteAll();
+		database = null;
 		
 	}
 	
@@ -29,8 +35,7 @@ public class DBConnectorImpl implements DBConnector{
 	 */
 	@Override
 	public boolean insert(Dish dish) {
-		// TODO Auto-generated method stub
-		return false;
+		return database.insert(dish.getName(), dish.getUrl());
 	}
 
 	/* (non-Javadoc)
@@ -38,8 +43,7 @@ public class DBConnectorImpl implements DBConnector{
 	 */
 	@Override
 	public boolean update(Dish dish) {
-		// TODO Auto-generated method stub
-		return false;
+		return database.update(dish.getName(), dish.getUrl());
 	}
 
 	/* (non-Javadoc)
@@ -47,8 +51,20 @@ public class DBConnectorImpl implements DBConnector{
 	 */
 	@Override
 	public ArrayList<Dish> displayAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Set<Map.Entry<String, String>> tempMap = database.getAll();
+		ArrayList<Dish> tempList = new ArrayList<Dish>();
+		Iterator<Entry<String, String>> it = tempMap.iterator();
+		
+		while (it.hasNext()) {
+	        Map.Entry<String,String> pair = (Entry<String, String>)it.next();
+	        Dish tempDish = DishCreater.createDish(pair.getKey(), pair.getValue());
+	        tempList.add(tempDish);
+	        it.remove(); // avoids a ConcurrentModificationException
+	    }
+		
+		
+		return tempList;
 	}
 
 	/* (non-Javadoc)
@@ -64,18 +80,21 @@ public class DBConnectorImpl implements DBConnector{
 	 * @see Database.DBConnector#delete(logic.Dish)
 	 */
 	@Override
-	public boolean delete(Dish dish) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(String name) {
+		return database.delete(name);
 	}
 
 	/* (non-Javadoc)
 	 * @see Database.DBConnector#get(logic.Dish)
 	 */
 	@Override
-	public Dish get(Dish dish) {
-		// TODO Auto-generated method stub
-		return null;
+	public Dish get(String name) {
+		Dish tempDish = null;
+		String value = database.get(name);
+		if(value != null){
+			tempDish = DishCreater.createDish(name,value);
+		}
+		return tempDish;
 	}
 	
 }

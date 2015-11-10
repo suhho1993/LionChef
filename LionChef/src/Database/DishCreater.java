@@ -9,6 +9,7 @@ import logic.Dish;
 public class DishCreater {
 
 	static public Dish createDish(String name, String url) {
-		return null;
+		Dish tempDish = new Dish(name,url);
+		return tempDish;
 	}
 }
