@@ -4,5 +4,10 @@
     <string name="app_name">LionChef</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="greeting">Welcome to LionChef</string>
+    <string name="introduction">please type in dishes you like to have</string>
+    <string name="go">go!</string>
+	<string name="recipe_manager">recipe manger</string>
+	<string name="feeln_lucky">I am feeling lucky!</string>
+	
 </resources>
