@@ -9,36 +9,44 @@ import java.util.Set;
 
 import logic.Dish;
 
-public class DBConnectorImpl implements DBConnector{
+public class DBConnectorImpl implements DBConnector {
 
 	private Database database;
 
-	public DBConnectorImpl(){
-		
+	public DBConnectorImpl() {
 	}
-	
+
 	@Override
 	public void open() {
 		database = new Database();
-		
+
 	}
 
 	@Override
 	public void close() {
 		database.deleteAll();
 		database = null;
-		
+
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Database.DBConnector#insert(logic.Dish)
 	 */
 	@Override
 	public boolean insert(Dish dish) {
-		return database.insert(dish.getName(), dish.getUrl());
+		if (database.contains(dish.getName())) {
+			this.update(dish);
+			return true;
+		} else {
+			return database.insert(dish.getName(), dish.getUrl());
+		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Database.DBConnector#update(logic.Dish)
 	 */
 	@Override
@@ -46,28 +54,31 @@ public class DBConnectorImpl implements DBConnector{
 		return database.update(dish.getName(), dish.getUrl());
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Database.DBConnector#displayAll()
 	 */
 	@Override
 	public ArrayList<Dish> displayAll() {
-		
+
 		Set<Map.Entry<String, String>> tempMap = database.getAll();
 		ArrayList<Dish> tempList = new ArrayList<Dish>();
 		Iterator<Entry<String, String>> it = tempMap.iterator();
-		
+
 		while (it.hasNext()) {
-	        Map.Entry<String,String> pair = (Entry<String, String>)it.next();
-	        Dish tempDish = DishCreater.createDish(pair.getKey(), pair.getValue());
-	        tempList.add(tempDish);
-	        it.remove(); // avoids a ConcurrentModificationException
-	    }
-		
-		
+			Map.Entry<String, String> pair = (Entry<String, String>) it.next();
+			Dish tempDish = DishCreater.createDish(pair.getKey(), pair.getValue());
+			tempList.add(tempDish);
+			it.remove(); // avoids a ConcurrentModificationException
+		}
+
 		return tempList;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Database.DBConnector#getRandom()
 	 */
 	@Override
@@ -76,7 +87,9 @@ public class DBConnectorImpl implements DBConnector{
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Database.DBConnector#delete(logic.Dish)
 	 */
 	@Override
@@ -84,17 +97,23 @@ public class DBConnectorImpl implements DBConnector{
 		return database.delete(name);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Database.DBConnector#get(logic.Dish)
 	 */
 	@Override
 	public Dish get(String name) {
 		Dish tempDish = null;
 		String value = database.get(name);
-		if(value != null){
-			tempDish = DishCreater.createDish(name,value);
+		if (value != null) {
+			tempDish = DishCreater.createDish(name, value);
 		}
 		return tempDish;
 	}
-	
+
+	public Database getDatabase() {
+		return database;
+	}
+
 }

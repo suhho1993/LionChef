@@ -18,8 +18,8 @@ public class Database {
 	public Database() {
 		hashList = new HashMap<String, String>();
 		this.insert("Chicken,", "www.chicken.com");
-		this.insert("Beef,", "www.beef.com");
-		this.insert("Fish,", "www.fish.com");
+		this.insert("Beef", "www.beef.com");
+		this.insert("Fish", "www.fish.com");
 		this.insert("Lasagna,", "www.lasagna.com");
 		this.insert("Spaghetti,", "www.spaghetti.com");
 	}
@@ -29,14 +29,14 @@ public class Database {
 	}
 
 	public boolean insert(String name, String url) {
-		hashList.put(name, url);
+		hashList.put(name.toLowerCase(), url.toLowerCase());
 		return false;
 	}
 
 	public boolean update(String name, String url){
-		if (hashList.containsKey(name)) {
-			hashList.remove(name);
-			this.insert(name, url);
+		if (hashList.containsKey(name.toLowerCase())) {
+			hashList.remove(name.toLowerCase());
+			this.insert(name.toLowerCase(), url.toLowerCase());
 			return true;
 		} else {
 			return false;
@@ -52,8 +52,8 @@ public class Database {
 	}
 
 	public boolean delete(String name) {
-		if (hashList.containsKey(name) && !hashList.isEmpty()) {
-			hashList.remove(name);
+		if (hashList.containsKey(name.toLowerCase()) && !hashList.isEmpty()) {
+			hashList.remove(name.toLowerCase());
 			return true;
 		} else {
 			return false;
@@ -61,8 +61,20 @@ public class Database {
 	}
 
 	public String get(String name) {
-		return hashList.get(name);
+		return hashList.get(name.toLowerCase());
 
 	}
-
+	
+	public int size(){
+		return hashList.size();
+	}
+	
+	
+	public boolean isEmpty(){
+		return hashList.isEmpty();
+	}
+	
+	public boolean contains(String name){
+		return hashList.containsKey(name.toLowerCase());
+	}
 }
