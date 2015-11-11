@@ -25,7 +25,6 @@ public class DBConnectorImpl implements DBConnector {
 	@Override
 	public void close() {
 		database.deleteAll();
-		database = null;
 
 	}
 
@@ -70,7 +69,7 @@ public class DBConnectorImpl implements DBConnector {
 			Map.Entry<String, String> pair = (Entry<String, String>) it.next();
 			Dish tempDish = DishCreater.createDish(pair.getKey(), pair.getValue());
 			tempList.add(tempDish);
-			it.remove(); // avoids a ConcurrentModificationException
+			//it.remove(); // avoids a ConcurrentModificationException
 		}
 
 		return tempList;
@@ -95,6 +94,7 @@ public class DBConnectorImpl implements DBConnector {
 	@Override
 	public boolean delete(String name) {
 		return database.delete(name);
+		
 	}
 
 	/*

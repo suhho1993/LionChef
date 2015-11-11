@@ -17,11 +17,11 @@ public class Database {
 	 */
 	public Database() {
 		hashList = new HashMap<String, String>();
-		this.insert("Chicken,", "www.chicken.com");
+		this.insert("Chicken", "www.chicken.com");
 		this.insert("Beef", "www.beef.com");
 		this.insert("Fish", "www.fish.com");
-		this.insert("Lasagna,", "www.lasagna.com");
-		this.insert("Spaghetti,", "www.spaghetti.com");
+		this.insert("Lasagna", "www.lasagna.com");
+		this.insert("Spaghetti", "www.spaghetti.com");
 	}
 	
 	public void deleteAll(){
@@ -51,13 +51,13 @@ public class Database {
 		return null;
 	}
 
-	public boolean delete(String name) {
-		if (hashList.containsKey(name.toLowerCase()) && !hashList.isEmpty()) {
+	public boolean delete(String name) {		
+		if(hashList.containsKey(name.toLowerCase()) && !hashList.isEmpty()){
 			hashList.remove(name.toLowerCase());
 			return true;
-		} else {
-			return false;
-		}
+		} 
+		return false;
+						
 	}
 
 	public String get(String name) {
