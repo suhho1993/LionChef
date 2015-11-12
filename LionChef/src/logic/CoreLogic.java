@@ -45,6 +45,10 @@ public class CoreLogic {
 	public void setCurrentDish(ArrayList<String> dishes) throws NoDishException {
 		String str = RandomFilter.filterStrings(dishes);
 		currentDish = DBConnector.get(str);
+		if(currentDish==null){
+			throw new NoDishException("Dish does not exist");
+			
+		}
 	}
 
 	/**
