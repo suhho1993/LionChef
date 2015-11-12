@@ -14,7 +14,7 @@ public class RandomFilter {
 	 * @return String
 	 */
 	static public String filterStrings(ArrayList<String> DishList){
-		//TODO
-		return null;
+		int rand=(int) (Math.random()*DishList.size());
+		return DishList.get(rand);
 	}
 }

@@ -4,6 +4,8 @@ import java.util.*;
 
 import com.dkmobile.lionchef.MainActivity;
 
+import Exceptions.NoDishException;
+import android.content.Intent;
 import logic.CoreLogic;
 import logic.Dish;
 
@@ -18,12 +20,19 @@ public class Controller {
 	
 	
 	/**
-	 * @param dishList array of Strings
+	 * @param dishList Strings
 	 * Calls logic class setDish method
+	 * @throws NoDishException 
 	 */
-	public Dish setCurrentDish(ArrayList<String> dishList) {
-		//TODO
-		return null;
+	public Dish setCurrentDish(String dishes) throws NoDishException {
+		//makes string into array of strings
+		ArrayList<String> v = new ArrayList<String>();
+		StringTokenizer tkn = new StringTokenizer(dishes, ",");
+		while (tkn.hasMoreTokens()) {
+			v.add(tkn.nextToken());
+		}
+		coreLogic.setCurrentDish(v);
+		return coreLogic.getCurrentDish();
 	}
 
 	/**
