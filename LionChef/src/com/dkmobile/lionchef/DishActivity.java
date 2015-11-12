@@ -18,6 +18,16 @@ import android.widget.Toast;
 
 public class DishActivity extends Activity{
 
+	TextView mTextview;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+	       mTextview = (TextView)findViewById(R.id.result);
+	       mTextview.setText(getIntent().getStringExtra("name")+" "+getIntent().getStringExtra("url"));
+	}
+
 	private Dish currentDish;
 
 	public DishActivity(Dish currentDish) {

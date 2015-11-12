@@ -46,7 +46,7 @@ public class CoreLogic {
 		String str = RandomFilter.filterStrings(dishes);
 		currentDish = DBConnector.get(str);
 		if(currentDish==null){
-			throw new NoDishException("Dish does not exist");
+			throw new NoDishException("Dish does not exist"+str);
 			
 		}
 	}

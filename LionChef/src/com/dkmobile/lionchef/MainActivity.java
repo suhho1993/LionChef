@@ -1,8 +1,7 @@
 package com.dkmobile.lionchef;
 
-import com.dkmobile.newmyobridge.R;
-
 import Controller.Controller;
+import Exceptions.NoDishException;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,52 +9,55 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import logic.Dish;
 
-public class MainActivity extends Activity{
-	
+public class MainActivity extends Activity {
+
+    private Toast mToast;
+    
 	private Controller controller;
 	private Dish currentDish;
-	
+
 	Button go_btn;
 	EditText editText;
 	String dishes;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		go_btn=(Button)findViewById(R.id.Go_btn);
-	
-		
-		editText = (EditText)findViewById(R.id.textbox);
-		
+		go_btn = (Button) findViewById(R.id.Go_btn);
+
+		editText = (EditText) findViewById(R.id.textbox);
+
 	}
-	
-	
+
 	/**
-	 * Displays the GUI Interface of the current dish 
+	 * Displays the GUI Interface of the current dish
 	 */
 	public void onClick(View v) {
 		switch (v.getId()) {
 
-		case R.id.Go_btn:{
-				dishes = editText.getText().toString();
-				currentDish=controller.setCurrentDish(dishes);	
-					
-	             Intent myIntent = new Intent(v.getContext(),DishActivity.class);
-	             myIntent.putExtra("name",currentDish.getName());
-	             myIntent.putExtra("url",currentDish.getUrl());
-	         
-	             startActivity(myIntent);
-		}
-		}
-		
-		
-	}
+		case R.id.Go_btn: {
+			dishes = editText.getText().toString();
+			try {
+				currentDish = controller.setCurrentDish(dishes);
+			} catch (NoDishException e) {
+				showToast(e.getMessage());
+				e.printStackTrace();
+			}
 
-	
+			Intent myIntent = new Intent(v.getContext(), DishActivity.class);
+			myIntent.putExtra("name", currentDish.getName());
+			myIntent.putExtra("url", currentDish.getUrl());
+
+			startActivity(myIntent);
+		}
+		}
+
+	}
 
 	/**
 	 * Displays the GUI Interface of the dish manager
@@ -73,7 +75,7 @@ public class MainActivity extends Activity{
 
 	/**
 	 * @param ctrl
-	 * set the current controller
+	 *            set the current controller
 	 */
 	public void setCtrl(Controller ctrl) {
 		controller = ctrl;
@@ -85,13 +87,22 @@ public class MainActivity extends Activity{
 	public Dish getCurrentDish() {
 		return currentDish;
 	}
-	
+
 	/**
-	 * Displays ExceptionActivity Interface when an exception occurs 
+	 * Displays ExceptionActivity Interface when an exception occurs
 	 */
-	public void DisplayError(String message){
-		//TODO
+	public void DisplayError(String message) {
+		// TODO
 	}
 
+
+    private void showToast(String text) {
+        if (mToast == null) {
+            mToast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        } else {
+            mToast.setText(text);
+        }
+        mToast.show();
+    }
 
 }
