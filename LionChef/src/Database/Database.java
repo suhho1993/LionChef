@@ -61,9 +61,7 @@ public class Database {
 	}
 
 	public String get(String name) {
-		System.out.println("In databse get");
 		String value = hashList.get(name.toLowerCase());
-		System.out.println("In database - Name:" + name + "URL" + value);
 		return value;
 
 	}

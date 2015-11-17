@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 
 import Database.DBConnectorImpl;
 import Database.DishCreater;
+import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
 
 /**
@@ -37,17 +38,22 @@ public class CoreLogic {
 	/**
 	 * @param dishList
 	 *            - array of strings
+	 * @throws EmptyArrayException 
 	 * @exception -NoDishException
 	 *                thrown when dish is not available in the database -filters
 	 *                array of String to retrieve one random string -searches
 	 *                database for that string -sets and returns currentDish
 	 *                returned by the database
 	 */
-	public void setCurrentDish(ArrayList<String> dishes) throws NoDishException {
-		String str = RandomFilter.filterStrings(dishes);
-		currentDish = DBConnector.get(str);
-		if(currentDish==null){
-			throw new NoDishException("Dish does not exist"+str);			
+	public void setCurrentDish(ArrayList<String> dishes) throws NoDishException, EmptyArrayException {
+		if (dishes.size() != 0) {
+			String str = RandomFilter.filterStrings(dishes);
+			currentDish = DBConnector.get(str);
+			if (currentDish == null) {
+				throw new NoDishException("Dish does not exist: " + str);
+			}
+		} else {
+			throw new EmptyArrayException("Empty array");
 		}
 	}
 

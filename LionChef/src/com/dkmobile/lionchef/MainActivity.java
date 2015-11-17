@@ -1,6 +1,7 @@
 package com.dkmobile.lionchef;
 
 import Controller.Controller;
+import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
 import android.app.Activity;
 import android.content.Intent;
@@ -46,6 +47,9 @@ public class MainActivity extends Activity {
 				currentDish = controller.setCurrentDish(dishes);
 			} catch (NoDishException e) {
 				showToast(e.getMessage());
+				e.printStackTrace();
+			} catch (EmptyArrayException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 

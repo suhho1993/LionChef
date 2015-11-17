@@ -107,7 +107,6 @@ public class DBConnectorImpl implements DBConnector {
 		String value = database.get(name);
 		if (value != null) {
 			tempDish = DishCreater.createDish(name, value);
-			System.out.println("Dish created!");
 		}
 		return tempDish;
 	}

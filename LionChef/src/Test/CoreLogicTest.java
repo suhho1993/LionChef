@@ -1,6 +1,7 @@
 package Test;
 import java.util.ArrayList;
 
+import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
 import junit.framework.TestCase;
 import logic.CoreLogic;
@@ -10,6 +11,7 @@ public class CoreLogicTest extends TestCase {
 	
 	CoreLogic core;
 	ArrayList<String> dishes;
+	ArrayList<String> empty;
 	
 	public CoreLogicTest(String name) {
 		
@@ -20,11 +22,12 @@ public class CoreLogicTest extends TestCase {
 	protected void setUp() throws Exception {
 		core = new CoreLogic();
 		dishes = new ArrayList<String>();
+		empty = new ArrayList<String>();
 		dishes.add("Chicken");
-//		dishes.add("Beef");
-//		dishes.add("Fail");
-//		dishes.add("Fish");
-//		dishes.add("Lasagna");
+		dishes.add("Beef");
+		dishes.add("Fail");
+		dishes.add("Fish");
+		dishes.add("Lasagna");
 		super.setUp();
 	}
 
@@ -32,16 +35,19 @@ public class CoreLogicTest extends TestCase {
 		super.tearDown();
 	}
 	
-	public void test(){	
-		System.out.println("Test");
+	public void testArray(){	
 		try {
 		core.setCurrentDish(dishes);
-		System.out.println(core.getCurrentDish().getName());
 	} catch (NoDishException e) {
+		System.out.println(e.getMessage());
+		assertTrue(true);
+	} catch (EmptyArrayException e) {
+		System.out.println(e.getMessage());
 		assertTrue(true);
 	}
 
 	}
+
 	
 	
 }

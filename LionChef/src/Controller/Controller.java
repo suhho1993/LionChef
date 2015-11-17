@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.dkmobile.lionchef.MainActivity;
 
+import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
 import android.content.Intent;
 import logic.CoreLogic;
@@ -23,8 +24,9 @@ public class Controller {
 	 * @param dishList Strings
 	 * Calls logic class setDish method
 	 * @throws NoDishException 
+	 * @throws EmptyArrayException 
 	 */
-	public Dish setCurrentDish(String dishes) throws NoDishException {
+	public Dish setCurrentDish(String dishes) throws NoDishException, EmptyArrayException {
 		//makes string into array of strings
 		ArrayList<String> v = new ArrayList<String>();
 		StringTokenizer tkn = new StringTokenizer(dishes, ",");
