@@ -26,6 +26,10 @@
             android:name=".DishActivity"
             android:label="Result" >
         </activity>
+        
+        <uses-library android:name="android.test.runner" />
     </application>
-
+<instrumentation android:name="android.test.InstrumentationTestRunner"
+    android:targetPackage="com.dkmobile.lionchef"
+    android:label="CoreLogicTest" />
 </manifest>

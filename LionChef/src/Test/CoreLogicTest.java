@@ -1,52 +1,49 @@
 package Test;
-
 import java.util.ArrayList;
 
+import Exceptions.NoDishException;
 import junit.framework.TestCase;
 import logic.CoreLogic;
 
 public class CoreLogicTest extends TestCase {
-
-	CoreLogic coreLogic;
+	
+	
+	CoreLogic core;
 	ArrayList<String> dishes;
 	
-	
-	public void testCoreLogic() {
-		fail("Not yet implemented");
-	}
-
-	public void testGetCurrentDish() {
-		fail("Not yet implemented");
-	}
-
-	public void testSetCurrentDish() {
+	public CoreLogicTest(String name) {
 		
+
+		super(name);
 	}
 
-	public void testGetRecipeDatabase() {
-		fail("Not yet implemented");
-	}
-
-	@Override
 	protected void setUp() throws Exception {
-		// TODO Auto-generated method stub
-		coreLogic=new CoreLogic();
-		dishes.add("chicken");
-		dishes.add("beef");
-		dishes.add("pork");
-		
-		//coreLogic.setCurrentDish(dishes);
+		core = new CoreLogic();
+		dishes = new ArrayList<String>();
+		dishes.add("Chicken");
+//		dishes.add("Beef");
+//		dishes.add("Fail");
+//		dishes.add("Fish");
+//		dishes.add("Lasagna");
 		super.setUp();
 	}
 
-	@Override
 	protected void tearDown() throws Exception {
-		// TODO Auto-generated method stub
 		super.tearDown();
 	}
-
-	public void testSetRecipeDatabase() {
-		fail("Not yet implemented");
+	
+	public void test(){	
+		System.out.println("Test");
+		try {
+		core.setCurrentDish(dishes);
+		System.out.println(core.getCurrentDish().getName());
+	} catch (NoDishException e) {
+		assertTrue(true);
 	}
 
+	}
+	
+	
 }
+
+

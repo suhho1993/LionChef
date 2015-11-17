@@ -69,7 +69,6 @@ public class DBConnectorImpl implements DBConnector {
 			Map.Entry<String, String> pair = (Entry<String, String>) it.next();
 			Dish tempDish = DishCreater.createDish(pair.getKey(), pair.getValue());
 			tempList.add(tempDish);
-			//it.remove(); // avoids a ConcurrentModificationException
 		}
 
 		return tempList;
@@ -108,6 +107,7 @@ public class DBConnectorImpl implements DBConnector {
 		String value = database.get(name);
 		if (value != null) {
 			tempDish = DishCreater.createDish(name, value);
+			System.out.println("Dish created!");
 		}
 		return tempDish;
 	}
