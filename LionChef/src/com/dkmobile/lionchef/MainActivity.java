@@ -29,6 +29,8 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		controller=new Controller();
+		
 		go_btn = (Button) findViewById(R.id.Go_btn);
 
 		editText = (EditText) findViewById(R.id.textbox);
@@ -53,7 +55,7 @@ public class MainActivity extends Activity {
 				e.printStackTrace();
 			}
 
-			Intent myIntent = new Intent(v.getContext(), DishActivity.class);
+			Intent myIntent = new Intent(this, DishActivity.class);
 			myIntent.putExtra("name", currentDish.getName());
 			myIntent.putExtra("url", currentDish.getUrl());
 

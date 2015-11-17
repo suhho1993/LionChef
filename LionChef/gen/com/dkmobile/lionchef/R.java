@@ -26,13 +26,14 @@ public final class R {
     }
     public static final class id {
         public static final int Go_btn=0x7f080003;
-        public static final int Map_btn=0x7f080008;
-        public static final int Recipe_btn=0x7f080009;
-        public static final int action_settings=0x7f08000b;
+        public static final int Map_btn=0x7f080009;
+        public static final int Recipe_btn=0x7f08000a;
+        public static final int action_settings=0x7f08000c;
         public static final int feeln_btn=0x7f080005;
         public static final int man_btn=0x7f080004;
-        public static final int res_man_btn=0x7f08000a;
-        public static final int result=0x7f080007;
+        public static final int res_man_btn=0x7f08000b;
+        public static final int result_name=0x7f080007;
+        public static final int result_url=0x7f080008;
         public static final int textView1=0x7f080000;
         public static final int textView2=0x7f080001;
         public static final int textbox=0x7f080002;
