@@ -12,11 +12,9 @@ import logic.Dish;
 
 public class Controller {
 	private final CoreLogic coreLogic;
-	private final MainActivity mainDisplay;
-
-	public Controller(CoreLogic logic, MainActivity mainDisplay){
+	
+	public Controller(CoreLogic logic){
 		this.coreLogic = logic;
-		this.mainDisplay = mainDisplay;
 	}
 	
 	
@@ -44,10 +42,4 @@ public class Controller {
 		return coreLogic;
 	}
 
-	/**
-	 * @return MainActivity
-	 */
-	public MainActivity getMainDisplay() {
-		return mainDisplay;
-	}
 }
