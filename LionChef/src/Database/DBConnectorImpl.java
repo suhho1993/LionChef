@@ -12,8 +12,17 @@ import logic.Dish;
 public class DBConnectorImpl implements DBConnector {
 
 	private Database database;
+	private static DBConnectorImpl instance;
 
-	public DBConnectorImpl() {
+	private DBConnectorImpl() {
+	}
+	
+	public static DBConnectorImpl getInstance(){
+		if(instance == null){
+		instance = new DBConnectorImpl();
+		}
+		
+		return instance;
 	}
 
 	@Override

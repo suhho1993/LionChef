@@ -17,16 +17,17 @@ import logic.Dish;
 public class ControllerTest {
 	
 	CoreLogic core;
-//	MinActivity main;
-//	Controller con;
-//	String dishes;
+	Controller con;
+	String dishes;
+	String empty;
 
 	@Before
 	public void setUp() throws Exception {
-//		core = new CoreLogic();
-//		main = new MainActivity();
-//		con = new Controller(core,main);
-//		dishes = "Chicken,Beef,Fish,Cheese,Fail";
+	core = new CoreLogic();
+	con = new Controller(core);
+	dishes = "Chicken,Beef,Fish,Cheese,Fail";
+	empty = "";
+	
 	}
 
 	@After
@@ -35,29 +36,20 @@ public class ControllerTest {
 
 	@Test
 	public void testSetCurrentDish() {
-//		try {
-//			Dish dish = con.setCurrentDish(dishes);
-//			System.out.println("Dish name:" + dish.getName());
-//		} catch (NoDishException e) {
-//			System.out.println(e.getMessage());
-//			assertTrue(true);
-//		} catch (EmptyArrayException e) {
-//			System.out.println(e.getMessage());
-//			assertTrue(true);
-//		}
+		try {
+			Dish dish = con.setCurrentDish(empty);
+			System.out.println("Dish name:" + dish.getName());
+		} catch (NoDishException e) {
+			System.out.println(e.getMessage());
+			assertTrue(true);
+		} catch (EmptyArrayException e) {
+			System.out.println(e.getMessage());
+			assertTrue(true);
+		}
 	
 		
 	
 	}
 
-	@Test
-	public void testGetCoreLogic() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetMainDisplay() {
-		fail("Not yet implemented");
-	}
 
 }

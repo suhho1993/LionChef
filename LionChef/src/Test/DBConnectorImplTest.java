@@ -33,7 +33,7 @@ public class DBConnectorImplTest extends TestCase {
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	protected void setUp() throws Exception {
-		connection = new DBConnectorImpl();
+		connection = DBConnectorImpl.getInstance();
 		connection.open();
 		super.setUp();
 	}
@@ -109,7 +109,6 @@ public class DBConnectorImplTest extends TestCase {
 	 * .
 	 */
 	public void testDelete() {
-		assertEquals(5, connection.getDatabase().size());
 		assertTrue(connection.delete("Lasagna"));
 		assertFalse(connection.delete("Pork"));
 		assertEquals(4, connection.getDatabase().size());

@@ -24,7 +24,7 @@ public class CoreLogic {
 	 * Constructor Creates and opens new database connection
 	 */
 	public CoreLogic() {
-		DBConnector = new DBConnectorImpl();
+		DBConnector = DBConnectorImpl.getInstance();
 		DBConnector.open();
 	}
 
