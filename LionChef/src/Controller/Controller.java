@@ -11,13 +11,13 @@ import logic.CoreLogic;
 import logic.Dish;
 
 public class Controller {
-	private final CoreLogic coreLogic;
+	private CoreLogic coreLogic;
 	
-	public Controller(CoreLogic logic){
-		this.coreLogic = logic;
+	public Controller(){
+		coreLogic=new CoreLogic();
 	}
 	
-	
+
 	/**
 	 * @param dishList Strings
 	 * Calls logic class setDish method
