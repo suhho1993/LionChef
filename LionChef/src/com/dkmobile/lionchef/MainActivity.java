@@ -15,8 +15,8 @@ import logic.Dish;
 
 public class MainActivity extends Activity {
 
-    private Toast mToast;
-    
+	private Toast mToast;
+
 	private Controller controller;
 	private Dish currentDish;
 
@@ -29,8 +29,8 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		controller=new Controller();
-		
+		controller = new Controller();
+
 		go_btn = (Button) findViewById(R.id.Go_btn);
 
 		editText = (EditText) findViewById(R.id.textbox);
@@ -45,21 +45,20 @@ public class MainActivity extends Activity {
 
 		case R.id.Go_btn: {
 			dishes = editText.getText().toString();
+			Intent myIntent = new Intent(this, DishActivity.class);
+
 			try {
 				currentDish = controller.setCurrentDish(dishes);
+				startActivity(myIntent);
 			} catch (NoDishException e) {
-				showToast(e.getMessage());
 				e.printStackTrace();
+				showToast(e.getMessage());
 			} catch (EmptyArrayException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				showToast(e.getMessage());
 			}
 
-			Intent myIntent = new Intent(this, DishActivity.class);
-			myIntent.putExtra("name", currentDish.getName());
-			myIntent.putExtra("url", currentDish.getUrl());
-
-			startActivity(myIntent);
 		}
 		}
 
@@ -101,14 +100,13 @@ public class MainActivity extends Activity {
 		// TODO
 	}
 
-
-    private void showToast(String text) {
-        if (mToast == null) {
-            mToast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        } else {
-            mToast.setText(text);
-        }
-        mToast.show();
-    }
+	private void showToast(String text) {
+		if (mToast == null) {
+			mToast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+		} else {
+			mToast.setText(text);
+		}
+		mToast.show();
+	}
 
 }
