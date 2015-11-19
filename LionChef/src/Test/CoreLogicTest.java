@@ -23,11 +23,11 @@ public class CoreLogicTest extends TestCase {
 		core = new CoreLogic();
 		dishes = new ArrayList<String>();
 		empty = new ArrayList<String>();
-		dishes.add("Chicken");
-		dishes.add("Beef");
+		dishes.add("qefwef");
+		dishes.add("wefewfw");
 		dishes.add("Fail");
-		dishes.add("Fish");
-		dishes.add("Lasagna");
+		dishes.add("wefewf");
+		dishes.add("efwf");
 		super.setUp();
 	}
 
