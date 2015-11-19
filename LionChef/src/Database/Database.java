@@ -1,8 +1,10 @@
 package Database;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import Exceptions.NoDishException;
@@ -72,10 +74,12 @@ public class Database {
 	
 	
 	public boolean isEmpty(){
+		
 		return hashList.isEmpty();
 	}
 	
 	public boolean contains(String name){
 		return hashList.containsKey(name.toLowerCase());
 	}
+		
 }

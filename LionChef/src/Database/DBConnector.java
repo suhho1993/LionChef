@@ -44,7 +44,7 @@ public interface DBConnector {
 	/**
 	 * @return arrayList of all the dishes in the database
 	 */
-	public ArrayList<Dish> displayAll();
+	public ArrayList<Dish> getAll();
 	
 	/**
 	 * @return a random dish from the database

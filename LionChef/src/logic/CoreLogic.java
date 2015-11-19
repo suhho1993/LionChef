@@ -53,7 +53,7 @@ public class CoreLogic {
 				throw new NoDishException("Dish does not exist: " + str);
 			}
 		} else {
-			throw new EmptyArrayException("Empty array");
+			throw new EmptyArrayException("Empty  array");
 		}
 	}
 

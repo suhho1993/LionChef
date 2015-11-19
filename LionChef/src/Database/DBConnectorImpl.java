@@ -1,6 +1,7 @@
 package Database;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -68,7 +69,7 @@ public class DBConnectorImpl implements DBConnector {
 	 * @see Database.DBConnector#displayAll()
 	 */
 	@Override
-	public ArrayList<Dish> displayAll() {
+	public ArrayList<Dish> getAll() {
 
 		Set<Map.Entry<String, String>> tempMap = database.getAll();
 		ArrayList<Dish> tempList = new ArrayList<Dish>();
@@ -90,8 +91,9 @@ public class DBConnectorImpl implements DBConnector {
 	 */
 	@Override
 	public Dish getRandom() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Dish> temp = this.getAll();
+		Collections.shuffle(temp);		
+		return temp.get(0);
 	}
 
 	/*

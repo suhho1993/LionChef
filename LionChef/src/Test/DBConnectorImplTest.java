@@ -81,10 +81,10 @@ public class DBConnectorImplTest extends TestCase {
 	public void testDisplayAll() {
 		
 		
-		ArrayList<Dish> testArray = connection.displayAll();
+		ArrayList<Dish> testArray = connection.getAll();
 		
 		connection.insert(pork);
-		testArray = connection.displayAll();
+		testArray = connection.getAll();
 	
 		//testArray = connection.displayAll();
 		for (int i = 0; i < testArray.size(); i++) {
@@ -93,7 +93,7 @@ public class DBConnectorImplTest extends TestCase {
 		}
 		
 		connection.delete("pork");
-		testArray = connection.displayAll();
+		testArray = connection.getAll();
 		assertEquals(5, testArray.size());
 	}
 
@@ -101,7 +101,7 @@ public class DBConnectorImplTest extends TestCase {
 	 * Test method for {@link Database.DBConnectorImpl#getRandom()}.
 	 */
 	public void testGetRandom() {
-		fail("Not yet implemented");
+		System.out.println("This is the random: " + connection.getRandom().getName());
 	}
 
 	/**
