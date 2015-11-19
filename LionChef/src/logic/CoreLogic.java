@@ -56,12 +56,29 @@ public class CoreLogic {
 			throw new EmptyArrayException("Empty  array");
 		}
 	}
+	
+	public boolean insert(String name, String value){
+		return DBConnector.insert(new Dish(name,value));
+		
+	}
+	
+	public boolean delete(String name){
+		return DBConnector.delete(name);
+	}
 
 	/**
 	 * @return current database connection
 	 */
 	public DBConnectorImpl getRecipeDatabase() {
 		return DBConnector;
+	}
+	
+	public ArrayList<Dish> getAll(){
+		return DBConnector.getAll();
+	}
+	
+	public Dish getRandom(){
+		return DBConnector.getRandom();
 	}
 
 	/**

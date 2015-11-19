@@ -34,7 +34,22 @@ public class Controller {
 		coreLogic.setCurrentDish(v);
 		return coreLogic.getCurrentDish();
 	}
-
+	
+	public Dish getRandom(){
+		return coreLogic.getCurrentDish();
+	}
+	
+	public boolean insert(String name, String value){
+		return coreLogic.insert(name, value);
+	}
+	
+	public boolean delete(String name){
+		return coreLogic.delete(name);
+	}
+	
+	public ArrayList<Dish> getAll(){
+		return coreLogic.getAll();
+	}
 	/**
 	 * @return CoreLogic
 	 */
