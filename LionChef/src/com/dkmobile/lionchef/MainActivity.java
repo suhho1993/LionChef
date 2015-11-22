@@ -5,6 +5,7 @@ import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,23 +44,32 @@ public class MainActivity extends Activity {
 	public void onClick(View v) {
 		switch (v.getId()) {
 
-		case R.id.Go_btn: {
-			dishes = editText.getText().toString();
-			Intent myIntent = new Intent(this, DishActivity.class);
-
-			try {
-				currentDish = controller.setCurrentDish(dishes);
-				startActivity(myIntent);
-			} catch (NoDishException e) {
-				e.printStackTrace();
-				showToast(e.getMessage());
-			} catch (EmptyArrayException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				showToast(e.getMessage());
+			case R.id.Go_btn: {
+				dishes = editText.getText().toString();
+				Intent myIntent = new Intent(this, DishActivity.class);
+	
+				try {
+					currentDish = controller.setCurrentDish(dishes);
+					startActivity(myIntent);
+				} catch (NoDishException e) {
+					e.printStackTrace();
+					showToast(e.getMessage());
+				} catch (EmptyArrayException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					showToast(e.getMessage());
+				}
+				
+				break;
 			}
-
-		}
+			
+			case R.id.Recipe_btn:{
+				String URL = "http://allrecipes.com/recipes/250/main-dish/" + currentDish;
+				
+				Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
+				startActivity(myIntent);
+				break;
+			}
 		}
 
 	}
