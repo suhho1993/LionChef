@@ -28,7 +28,7 @@ public final class R {
         public static final int Go_btn=0x7f080003;
         public static final int Map_btn=0x7f080009;
         public static final int Recipe_btn=0x7f08000a;
-        public static final int action_settings=0x7f08000c;
+        public static final int action_settings=0x7f08000d;
         public static final int feeln_btn=0x7f080005;
         public static final int man_btn=0x7f080004;
         public static final int res_man_btn=0x7f08000b;
@@ -38,6 +38,7 @@ public final class R {
         public static final int textView2=0x7f080001;
         public static final int textbox=0x7f080002;
         public static final int txt1=0x7f080006;
+        public static final int webview=0x7f08000c;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -49,6 +50,7 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
+        public static final int current_dish=0x7f050008;
         public static final int feeln_lucky=0x7f050007;
         public static final int go=0x7f050005;
         public static final int greeting=0x7f050003;

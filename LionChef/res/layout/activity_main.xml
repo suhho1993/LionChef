@@ -28,7 +28,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:ems="12"
-	        android:inputType="textCapWords" />
+	        android:inputType="textCapWords"/>"
 	
 	    <Button
 	        android:id="@+id/Go_btn"

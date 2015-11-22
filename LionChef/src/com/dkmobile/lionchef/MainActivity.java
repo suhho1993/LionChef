@@ -5,12 +5,14 @@ import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import logic.Dish;
 
@@ -33,9 +35,7 @@ public class MainActivity extends Activity {
 		controller = new Controller();
 
 		go_btn = (Button) findViewById(R.id.Go_btn);
-
 		editText = (EditText) findViewById(R.id.textbox);
-
 	}
 
 	/**
@@ -50,6 +50,8 @@ public class MainActivity extends Activity {
 	
 				try {
 					currentDish = controller.setCurrentDish(dishes);
+					myIntent.putExtra("name",currentDish.getName());
+					myIntent.putExtra("url", currentDish.getUrl());
 					startActivity(myIntent);
 				} catch (NoDishException e) {
 					e.printStackTrace();
@@ -63,13 +65,6 @@ public class MainActivity extends Activity {
 				break;
 			}
 			
-			case R.id.Recipe_btn:{
-				String URL = "http://allrecipes.com/recipes/250/main-dish/" + currentDish;
-				
-				Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
-				startActivity(myIntent);
-				break;
-			}
 		}
 
 	}
