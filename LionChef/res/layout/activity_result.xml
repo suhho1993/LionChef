@@ -9,25 +9,18 @@
         android:id="@+id/txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is what you want"
         android:layout_gravity="center"
+        android:text="This is what you want"
         android:textSize="25sp" />
 
     <TextView
         android:id="@+id/result_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:text="@string/current_dish"
-        android:layout_gravity="center"
-        android:textSize="20dp" />
-    
-    <TextView
-        android:id="@+id/result_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="  "
-        android:layout_gravity="center"
-        android:textSize="20dp" />
+        android:textSize="25dp" />
 
     <Button
         android:id="@+id/Map_btn"
@@ -42,7 +35,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-
         android:text="Find Recipe" />
 
     <Button
@@ -52,12 +44,5 @@
         android:layout_marginTop="10dp"
         android:onClick="onClick"
         android:text="Mange Recipe" />
-    
-    <WebView 
-        android:id="@+id/webview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        
-        />
 
 </LinearLayout>

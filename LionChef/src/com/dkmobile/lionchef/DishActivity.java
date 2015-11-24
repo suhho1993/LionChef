@@ -25,7 +25,7 @@ import android.widget.Toast;
 public class DishActivity extends Activity{
 
 	TextView mTextview_name;
-	TextView mTextview_url;
+	
 
 	String url;
 	Button recipe_btn;
@@ -40,10 +40,8 @@ public class DishActivity extends Activity{
 
 	       mTextview_name = (TextView)findViewById(R.id.result_name);
 	       mTextview_name.setText(getIntent().getStringExtra("name"));
-	       mTextview_url = (TextView)findViewById(R.id.result_url);
+	       
 	       url = getIntent().getStringExtra("url");
-	       mTextview_url.setText(url);
-	       //mTextview_url.setText(getIntent().getStringExtra("url"));
 	       
 	       recipe_btn = (Button) findViewById(R.id.Recipe_btn);
 	       recipe_btn.setOnClickListener(Displayrecipe);
@@ -69,8 +67,6 @@ public class DishActivity extends Activity{
 			switch(v.getId())
 			{
 				case R.id.Recipe_btn:
-					//String url = getIntent().getStringExtra("url");
-					String url = "http://allrecipes.com/recipes/502/main-dish/" + getIntent().getStringExtra("name");
 					Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 					startActivity(webIntent);
 					//webview.loadUrl(url);

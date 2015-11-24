@@ -19,11 +19,12 @@ public class Database {
 	 */
 	public Database() {
 		hashList = new HashMap<String, String>();
-		this.insert("Chicken", "www.chicken.com");
-		this.insert("Beef", "www.beef.com");
-		this.insert("Fish", "www.fish.com");
-		this.insert("Lasagna", "www.lasagna.com");
-		this.insert("Spaghetti", "www.spaghetti.com");
+		this.insert("Chicken", "http://allrecipes.com/recipes/201/meat-and-poultry/chicken/");
+		this.insert("Beef", "http://allrecipes.com/recipes/200/meat-and-poultry/beef/");
+		this.insert("Fish", "http://allrecipes.com/recipes/411/seafood/fish/");
+		this.insert("Lasagna", "http://allrecipes.com/recipes/502/main-dish/pasta/lasagna/");
+		this.insert("Spaghetti", "http://allrecipes.com/search/results/?wt=spagetti&sort=re");
+		
 	}
 	
 	public void deleteAll(){

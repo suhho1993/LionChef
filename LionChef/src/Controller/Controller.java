@@ -27,7 +27,7 @@ public class Controller {
 	public Dish setCurrentDish(String dishes) throws NoDishException, EmptyArrayException {
 		//makes string into array of strings
 		ArrayList<String> v = new ArrayList<String>();
-		StringTokenizer tkn = new StringTokenizer(dishes, ",");
+		StringTokenizer tkn = new StringTokenizer(dishes, ", ");
 		while (tkn.hasMoreTokens()) {
 			v.add(tkn.nextToken());
 		}
