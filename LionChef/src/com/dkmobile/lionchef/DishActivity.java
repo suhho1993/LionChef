@@ -29,30 +29,20 @@ public class DishActivity extends Activity{
 
 	String url;
 	Button recipe_btn;
-	//private WebView webview;
 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_result);
-		//webview = (WebView)findViewById(R.id.webview);
 
-	       mTextview_name = (TextView)findViewById(R.id.result_name);
-	       mTextview_name.setText(getIntent().getStringExtra("name"));
+	    mTextview_name = (TextView)findViewById(R.id.result_name);
+	    mTextview_name.setText(getIntent().getStringExtra("name"));
 	       
-	       url = getIntent().getStringExtra("url");
-	       
-	       recipe_btn = (Button) findViewById(R.id.Recipe_btn);
-	       recipe_btn.setOnClickListener(Displayrecipe);
-	       
-	       /*WebSettings webSettings = webview.getSettings();
-	       webSettings.setJavaScriptEnabled(true);
-	       
-	       webview.setWebChromeClient(new WebChromeClient());
-	      // webview.addJavascriptInterface(new JavaScriptMethods(), "url");
-	       webview.loadUrl(url);*/ 
-
+	    url = getIntent().getStringExtra("url");
+	    
+	    recipe_btn = (Button) findViewById(R.id.Recipe_btn);
+	    recipe_btn.setOnClickListener(Displayrecipe);
 	}
 
 	/**
@@ -67,9 +57,9 @@ public class DishActivity extends Activity{
 			switch(v.getId())
 			{
 				case R.id.Recipe_btn:
-					Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-					startActivity(webIntent);
-					//webview.loadUrl(url);
+					/*Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+					startActivity(webIntent);*/
+					Intent recipeIntent = new Intent(this, RecipeActivity.class);
 					break;
 			}
 		

@@ -27,6 +27,10 @@
             android:name=".DishActivity"
             android:label="Result" >
         </activity>
+        <activity
+            android:name=".RecipeActivity"
+            android:label="Recipe" >
+        </activity>
     </application>
 
 
