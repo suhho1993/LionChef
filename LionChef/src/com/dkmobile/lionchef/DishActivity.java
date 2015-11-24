@@ -22,27 +22,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DishActivity extends Activity{
+public class DishActivity extends Activity {
 
 	TextView mTextview_name;
-	
 
 	String url;
 	Button recipe_btn;
 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_result);
 
-	    mTextview_name = (TextView)findViewById(R.id.result_name);
-	    mTextview_name.setText(getIntent().getStringExtra("name"));
-	       
-	    url = getIntent().getStringExtra("url");
-	    
-	    recipe_btn = (Button) findViewById(R.id.Recipe_btn);
-	    recipe_btn.setOnClickListener(Displayrecipe);
+		mTextview_name = (TextView) findViewById(R.id.result_name);
+		mTextview_name.setText(getIntent().getStringExtra("name"));
+
+		url = getIntent().getStringExtra("url");
+
+		recipe_btn = (Button) findViewById(R.id.Recipe_btn);
+		recipe_btn.setOnClickListener(Displayrecipe);
 	}
 
 	/**
@@ -59,24 +57,26 @@ public class DishActivity extends Activity{
 				case R.id.Recipe_btn:
 					/*Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 					startActivity(webIntent);*/
-					Intent recipeIntent = new Intent(this, RecipeActivity.class);
+					Intent recipeIntent = new Intent(DishActivity.this ,RecipeActivity.class);
+					recipeIntent.putExtra("url", url);
+					startActivity(recipeIntent);
 					break;
 			}
 		
 			
 		}
 	};
-	
-	public void DisplayRecipe(){
-		//TODO
-		
+
+	public void DisplayRecipe() {
+		// TODO
+
 	}
-	
+
 	/**
 	 * Displays the the MapActivity Interface of the current Dish
 	 */
-	public void DisplayMap(){
-		//TODO
+	public void DisplayMap() {
+		// TODO
 	}
 
 }
