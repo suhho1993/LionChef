@@ -31,6 +31,10 @@
             android:name=".RecipeActivity"
             android:label="Recipe" >
         </activity>
+        <activity
+            android:name=".DishManagerActivity"
+            android:label="Manager" >
+        </activity>
     </application>
 
 

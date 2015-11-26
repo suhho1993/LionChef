@@ -23,9 +23,12 @@ public class MainActivity extends Activity {
 	private Controller controller;
 	private Dish currentDish;
 
-	Button go_btn;
-	EditText editText;
-	String dishes;
+	private Button go_btn;
+	private Button man_btn;
+	// private Button go_btn;
+
+	private EditText editText;
+	private String dishes;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		controller = new Controller();
 
-		go_btn = (Button) findViewById(R.id.Go_btn);
+		go_btn = (Button) findViewById(R.id.main_Go_btn);
 		editText = (EditText) findViewById(R.id.textbox);
 	}
 
@@ -44,29 +47,43 @@ public class MainActivity extends Activity {
 	public void onClick(View v) {
 		switch (v.getId()) {
 
-			case R.id.Go_btn: {
-				dishes = editText.getText().toString();
-				Intent myIntent = new Intent(this, DishActivity.class);
-	
-				try {
-					currentDish = controller.setCurrentDish(dishes);
-					myIntent.putExtra("name",currentDish.getName());
-					myIntent.putExtra("url", currentDish.getUrl());
-					startActivity(myIntent);
-				} catch (NoDishException e) {
-					e.printStackTrace();
-					showToast(e.getMessage());
-				} catch (EmptyArrayException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					showToast(e.getMessage());
-				}
-				
-				break;
+		case R.id.main_Go_btn: {
+			dishes = editText.getText().toString();
+			Intent myIntent = new Intent(this, DishActivity.class);
+
+			try {
+				currentDish = controller.setCurrentDish(dishes);
+				myIntent.putExtra("name", currentDish.getName());
+				myIntent.putExtra("url", currentDish.getUrl());
+				startActivity(myIntent);
+			} catch (NoDishException e) {
+				e.printStackTrace();
+				showToast(e.getMessage());
+			} catch (EmptyArrayException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				showToast(e.getMessage());
 			}
-			
+
+			break;
+		}
+		case R.id.main_man_btn:
+			Intent manIntent = new Intent(this, DishManagerActivity.class);
+			manIntent.putExtra("name", currentDish.getName());
+			manIntent.putExtra("url", currentDish.getUrl());
+			startActivityForResult(manIntent, 1);
+			break;
 		}
 
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		switch (requestCode) {
+		case 0: { // double tap click
+			if (resultCode == RESULT_OK) {
+				
+			)
 	}
 
 	/**

@@ -31,7 +31,7 @@
 	        android:inputType="textCapWords"/>"
 	
 	    <Button
-	        android:id="@+id/Go_btn"
+	        android:id="@+id/main_Go_btn"
 			android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/go" 
@@ -45,14 +45,14 @@
 	    >
 	    
 	    <Button
-	        android:id="@+id/man_btn"
+	        android:id="@+id/main_man_btn"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/recipe_manager" 
 	        android:onClick="onClick"/>
 	    
 	    <Button
-	        android:id="@+id/feeln_btn"
+	        android:id="@+id/main_feeln_btn"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/feeln_lucky" />
