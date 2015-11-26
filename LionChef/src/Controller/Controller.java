@@ -39,8 +39,8 @@ public class Controller {
 		return coreLogic.getCurrentDish();
 	}
 	
-	public boolean insert(String name, String value){
-		return coreLogic.insert(name, value);
+	public boolean insert(Dish dish){
+		return coreLogic.insert(dish);
 	}
 	
 	public boolean delete(String name){

@@ -12,7 +12,7 @@ import logic.Dish;
 
 public class DBConnectorImpl implements DBConnector {
 
-	private Database database;
+	private TemporyDatabase database;
 	private static DBConnectorImpl instance;
 
 	private DBConnectorImpl() {
@@ -28,7 +28,7 @@ public class DBConnectorImpl implements DBConnector {
 
 	@Override
 	public void open() {
-		database = new Database();
+		database = new TemporyDatabase();
 
 	}
 
@@ -122,7 +122,7 @@ public class DBConnectorImpl implements DBConnector {
 		return tempDish;
 	}
 
-	public Database getDatabase() {
+	public TemporyDatabase getDatabase() {
 		return database;
 	}
 

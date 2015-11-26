@@ -1,0 +1,14 @@
+{"dish":
+{
+  "name": "Chicken",
+  "coordinates":[
+      [94.3,33.2],
+      [20.5,23.5]
+  ],
+  "url":[
+      "www.chichen.com",
+      "www.chickenspicybeef.com"
+    ],
+    "date":"@{currentdate}"
+}
+}
