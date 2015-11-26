@@ -57,8 +57,8 @@ public class CoreLogic {
 		}
 	}
 	
-	public boolean insert(String name, String value){
-		return DBConnector.insert(new Dish(name,value));
+	public boolean insert(Dish dish){
+		return DBConnector.insert(dish);
 		
 	}
 	
