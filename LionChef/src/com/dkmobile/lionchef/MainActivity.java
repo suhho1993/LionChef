@@ -2,6 +2,8 @@ package com.dkmobile.lionchef;
 
 import java.util.ArrayList;
 
+import com.dkmobile.lionchef.R.id;
+
 import Controller.Controller;
 import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
@@ -29,7 +31,7 @@ public class MainActivity extends Activity {
 
 	private Button go_btn;
 	private Button man_btn;
-	// private Button go_btn;
+	private Button rand_btn;
 
 	private EditText editText;
 	private String dishes;
@@ -41,6 +43,7 @@ public class MainActivity extends Activity {
 		controller = new Controller();
 
 		go_btn = (Button) findViewById(R.id.main_Go_btn);
+		rand_btn = (Button) findViewById(R.id.main_feeln_btn);
 		editText = (EditText) findViewById(R.id.textbox);
 	}
 
@@ -56,10 +59,8 @@ public class MainActivity extends Activity {
 
 			try {
 				currentDish = controller.setCurrentDish(dishes);
-				myIntent.putExtra("name", currentDish.getName());
-				myIntent.putExtra("url", currentDish.getUrl());
 				myIntent.putExtra("dish", currentDish);
-				startActivity(myIntent);
+				startActivityForResult(myIntent, 2);
 			} catch (NoDishException e) {
 				e.printStackTrace();
 				showToast(e.getMessage());
@@ -71,14 +72,21 @@ public class MainActivity extends Activity {
 
 			break;
 		}
-		case R.id.main_man_btn:
+		case R.id.main_man_btn: {
 			Intent manIntent = new Intent(this, DishManagerActivity.class);
-			dishList=controller.getAll();
+			dishList = controller.getAll();
 			manIntent.putExtra("allDish", dishList);
 			startActivityForResult(manIntent, 1);
 			break;
 		}
-
+		case R.id.main_feeln_btn: {
+			currentDish = controller.getRandom();
+			Intent mIntent = new Intent(this, DishActivity.class);
+			mIntent.putExtra("dish", currentDish);
+			startActivityForResult(mIntent, 2);
+			break;
+		}
+		}
 	}
 
 	@Override
@@ -87,14 +95,29 @@ public class MainActivity extends Activity {
 		case 1: {
 			if (resultCode == RESULT_OK) {
 				manDish = (Dish) data.getSerializableExtra("Dish");
-				//showToast(data.getStringExtra("delete"));
-				if(data.getStringExtra("delete").equals("true")){
-					controller.delete(manDish.getName());	
-					showToast("Deleted.."+manDish.getName());
-					}else{
-						//showToast(manDish.getName());
-						controller.insert(manDish);
-						showToast("Inserted.."+manDish.getName());
+				// showToast(data.getStringExtra("delete"));
+				if (data.getStringExtra("delete").equals("true")) {
+					controller.delete(manDish.getName());
+					showToast("Deleted.." + manDish.getName());
+				} else {
+					// showToast(manDish.getName());
+					controller.insert(manDish);
+					showToast("Inserted.." + manDish.getName());
+				}
+			}
+			break;
+		}
+		case 2: {
+			if (resultCode == RESULT_OK) {
+				manDish = (Dish) data.getSerializableExtra("Dish");
+				// showToast(data.getStringExtra("delete"));
+				if (data.getStringExtra("delete").equals("true")) {
+					controller.delete(manDish.getName());
+					showToast("Deleted.." + manDish.getName());
+				} else {
+					// showToast(manDish.getName());
+					controller.insert(manDish);
+					showToast("Inserted.." + manDish.getName());
 				}
 			}
 			break;

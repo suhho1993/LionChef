@@ -36,7 +36,7 @@ public class Controller {
 	}
 	
 	public Dish getRandom(){
-		return coreLogic.getCurrentDish();
+		return coreLogic.getRandom();
 	}
 	
 	public boolean insert(Dish dish){
