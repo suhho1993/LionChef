@@ -7,8 +7,8 @@
     <string name="greeting">Welcome to LionChef</string>
     <string name="introduction">please type in dishes you like to have</string>
     <string name="go">go!</string>
-	<string name="recipe_manager">recipe manger</string>
-	<string name="feeln_lucky">I am feeling lucky!</string>
-	<string name="current_dish">%1$s</string>
-	
+    <string name="recipe_manager">recipe manger</string>
+    <string name="feeln_lucky">I am feeling lucky!</string>
+    <string name="current_dish">%1$s</string>
+
 </resources>

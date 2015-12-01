@@ -1,5 +1,7 @@
 package com.dkmobile.lionchef;
 
+import java.util.ArrayList;
+
 import Controller.Controller;
 import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
@@ -22,6 +24,8 @@ public class MainActivity extends Activity {
 
 	private Controller controller;
 	private Dish currentDish;
+	private ArrayList<Dish> dishList;
+	private Dish manDish;
 
 	private Button go_btn;
 	private Button man_btn;
@@ -32,7 +36,6 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		controller = new Controller();
@@ -55,6 +58,7 @@ public class MainActivity extends Activity {
 				currentDish = controller.setCurrentDish(dishes);
 				myIntent.putExtra("name", currentDish.getName());
 				myIntent.putExtra("url", currentDish.getUrl());
+				myIntent.putExtra("dish", currentDish);
 				startActivity(myIntent);
 			} catch (NoDishException e) {
 				e.printStackTrace();
@@ -69,8 +73,8 @@ public class MainActivity extends Activity {
 		}
 		case R.id.main_man_btn:
 			Intent manIntent = new Intent(this, DishManagerActivity.class);
-			manIntent.putExtra("name", currentDish.getName());
-			manIntent.putExtra("url", currentDish.getUrl());
+			dishList=controller.getAll();
+			manIntent.putExtra("allDish", dishList);
 			startActivityForResult(manIntent, 1);
 			break;
 		}
@@ -80,10 +84,22 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
-		case 0: { // double tap click
+		case 1: {
 			if (resultCode == RESULT_OK) {
-				
-			)
+				manDish = (Dish) data.getSerializableExtra("Dish");
+				//showToast(data.getStringExtra("delete"));
+				if(data.getStringExtra("delete").equals("true")){
+					controller.delete(manDish.getName());	
+					showToast("Deleted.."+manDish.getName());
+					}else{
+						//showToast(manDish.getName());
+						controller.insert(manDish);
+						showToast("Inserted.."+manDish.getName());
+				}
+			}
+			break;
+		}
+		}
 	}
 
 	/**

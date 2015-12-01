@@ -1,5 +1,6 @@
 package com.dkmobile.lionchef;
 
+import java.io.Serializable;
 import java.util.*;
 
 import com.dkmobile.lionchef.R.string;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 public class DishActivity extends Activity {
 
 	TextView mTextview_name;
+	
+	private Dish currentDish;
 
 	String url;
 	Button recipe_btn;
@@ -33,11 +36,14 @@ public class DishActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_result);
-
+		
+		currentDish=(Dish) getIntent().getSerializableExtra("dish");
+		
 		mTextview_name = (TextView) findViewById(R.id.result_name);
-		mTextview_name.setText(getIntent().getStringExtra("name"));
+		
+		mTextview_name.setText(currentDish.getName());//getIntent().getStringExtra("name"));
 
-		url = getIntent().getStringExtra("url");
+		url = currentDish.getUrl();//getIntent().getStringExtra("url");
 
 		recipe_btn = (Button) findViewById(R.id.Recipe_btn);
 		recipe_btn.setOnClickListener(Displayrecipe);
