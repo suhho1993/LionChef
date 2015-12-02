@@ -31,11 +31,11 @@ import android.annotation.SuppressLint;
 import logic.Dish;
 
 @SuppressLint("NewApi")
-public class JSONDishParser {
+public class JSONDishParser implements Database{
 	private final String filePath;
 	private final JsonParser parser;
 
-	public JSONDishParser() {
+	public JSONDishParser()  {
 		filePath = "C:\\Users\\Maximilian\\Desktop\\testJSON.json";
 		parser = new JsonParser();
 

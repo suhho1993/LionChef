@@ -1,6 +1,10 @@
 package Database;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import org.json.simple.parser.ParseException;
 
 import logic.Dish;
 
@@ -8,13 +12,17 @@ public interface DBConnector {
 
 	/**
 	 * Opens database connection
+	 * @throws ParseException 
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
 	 */
-	public void open();
+	public void open() throws FileNotFoundException, IOException, ParseException;
 	
 	/**
 	 * Closes the current database
+	 * @throws IOException 
 	 */
-	public void close();
+	public void close() throws IOException;
 	
 	/**
 	 * @param dish

@@ -10,7 +10,7 @@ import java.util.Set;
 import Exceptions.NoDishException;
 import logic.Dish;
 
-public class TemporyDatabase {
+public class TemporyDatabase implements Database {
 	private HashMap<String, String> hashList;
 
 	/**
