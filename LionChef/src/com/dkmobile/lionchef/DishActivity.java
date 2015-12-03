@@ -32,7 +32,7 @@ public class DishActivity extends Activity {
 	String url;
 	Button recipe_btn;
 	Button man_btn;
-	// Button map_btn;
+	Button map_btn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,9 @@ public class DishActivity extends Activity {
 
 		man_btn = (Button) findViewById(R.id.res_man_btn);
 		man_btn.setOnClickListener(Displayrecipe);
+		
+		map_btn = (Button)findViewById(R.id.Map_btn);
+		map_btn.setOnClickListener(Displayrecipe);
 
 	}
 
@@ -76,6 +79,10 @@ public class DishActivity extends Activity {
 				Intent recipeIntent1 = new Intent(DishActivity.this, RecipeEdit.class);
 				recipeIntent1.putExtra("Dish", currentDish);
 				startActivityForResult(recipeIntent1, 13);
+				break;
+			case R.id.Map_btn:
+				Intent mapIntent = new Intent(DishActivity.this, MapActivity.class);
+				startActivity(mapIntent);
 				break;
 			}
 
