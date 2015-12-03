@@ -35,10 +35,10 @@ public class DishActivity extends Activity {
 	// Button map_btn;
 
 	@Override
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_result);
-
+		setContentView(R.layout.activity_result);	
 		currentDish = (Dish) getIntent().getSerializableExtra("dish");
 
 		mTextview_name = (TextView) findViewById(R.id.result_name);

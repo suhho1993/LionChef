@@ -20,7 +20,7 @@ public class CoreLogicTest extends TestCase {
 	}
 
 	protected void setUp() throws Exception {
-		core = new CoreLogic();
+		//core = new CoreLogic();
 		dishes = new ArrayList<String>();
 		empty = new ArrayList<String>();
 		dishes.add("qefwef");

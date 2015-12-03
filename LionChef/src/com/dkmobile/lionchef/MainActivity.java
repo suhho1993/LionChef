@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		controller = new Controller();
+		controller = new Controller("dishes.jon",this.getApplicationContext());
 
 		go_btn = (Button) findViewById(R.id.main_Go_btn);
 		rand_btn = (Button) findViewById(R.id.main_feeln_btn);
