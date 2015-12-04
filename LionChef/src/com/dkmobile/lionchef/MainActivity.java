@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -38,9 +39,11 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Log.i("test","testing test");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		controller = new Controller("dishes.jon",this.getApplicationContext());
+		System.out.println("test-main activity");
+		controller = new Controller("dishes.json",this.getApplicationContext());
 
 		go_btn = (Button) findViewById(R.id.main_Go_btn);
 		rand_btn = (Button) findViewById(R.id.main_feeln_btn);

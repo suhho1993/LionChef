@@ -24,6 +24,7 @@ public class CoreLogic {
 	 * Constructor Creates and opens new database connection
 	 */
 	public CoreLogic(String fileName, Context context) {
+		System.out.println("test-CoreLogic");
 		DBConnector = DBConnectorImpl.getInstance(fileName,context);
 		DBConnector.open();
 	}

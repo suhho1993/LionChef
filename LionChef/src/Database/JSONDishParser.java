@@ -38,7 +38,8 @@ import logic.Dish;
 public class JSONDishParser implements Database {
 
 	
-	private final File jsonFile;
+	private final String jsonFile;
+	private String fileName;
 	private final JsonParser parser;
 
 	public JSONDishParser(String fileName, Context context) throws IOException {
@@ -48,7 +49,7 @@ public class JSONDishParser implements Database {
 
 	public ArrayList<Dish> getJson() throws FileNotFoundException, IOException, ParseException {
 		ArrayList<Dish> dishes = new ArrayList<Dish>();
-		JsonObject object = (JsonObject) parser.parse(new FileReader(jsonFile));
+		JsonObject object = (JsonObject) parser.parse(jsonFile);
 
 		for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
 			JsonArray array = entry.getValue().getAsJsonArray();
@@ -79,7 +80,7 @@ public class JSONDishParser implements Database {
 		Gson gson = new Gson();
 		String jsonRepresentation = gson.toJson(inputObj);
 
-		FileWriter writer = new FileWriter(jsonFile);
+		FileWriter writer = new FileWriter(fileName);
 		writeJsonToFile(writer, jsonRepresentation);
 
 	}
@@ -89,35 +90,27 @@ public class JSONDishParser implements Database {
 		writer.close();
 	}
 
-	private File jsonToStringFromAssetFolder(String fileName, Context context) throws IOException {
+	private String jsonToStringFromAssetFolder(String fileName, Context context) throws IOException {
+		
+		this.fileName = fileName;
+		String json = null;
+        try {
+        	System.out.println("test-parser");
+        	System.out.println(fileName);
+            InputStream is = context.getAssets().open(fileName);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
 
-		AssetManager manager = context.getAssets();
-		InputStream inputStream = manager.open(fileName);
-
-		File file = createFileFromInputStream(fileName, inputStream);
-		return file;
 	}
-
-	private File createFileFromInputStream(String fileName, InputStream inputStream) {
-
-		try {
-			File f = new File("dishes.json");
-			OutputStream outputStream = new FileOutputStream(f);
-			byte buffer[] = new byte[1024];
-			int length = 0;
-
-			while ((length = inputStream.read(buffer)) > 0) {
-				outputStream.write(buffer, 0, length);
-			}
-
-			outputStream.close();
-			inputStream.close();
-
-			return f;
-		} catch (IOException e) {
-			// Logging exception
-		}
-
-		return null;
-	}
+	
+	
 }

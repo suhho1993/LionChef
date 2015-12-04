@@ -24,6 +24,7 @@ public class DBConnectorImpl implements DBConnector  {
 
 	public static DBConnectorImpl getInstance(String fileName, Context context) {
 		if (instance == null) {
+			System.out.println("test-DBConnector");
 			instance = new DBConnectorImpl(fileName,context);
 		}
 

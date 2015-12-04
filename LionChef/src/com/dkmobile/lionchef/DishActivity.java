@@ -3,10 +3,10 @@ package com.dkmobile.lionchef;
 import java.io.Serializable;
 import java.util.*;
 
-import com.dkmobile.lionchef.R.string;
+
 
 import logic.Dish;
-
+//import android.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
