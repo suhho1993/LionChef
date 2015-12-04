@@ -61,6 +61,7 @@ public class MainActivity extends Activity {
 			Intent myIntent = new Intent(this, DishActivity.class);
 
 			try {
+				controller.open();
 				currentDish = controller.setCurrentDish(dishes);
 				myIntent.putExtra("dish", currentDish);
 				startActivityForResult(myIntent, 2);
@@ -77,12 +78,14 @@ public class MainActivity extends Activity {
 		}
 		case R.id.main_man_btn: {
 			Intent manIntent = new Intent(this, DishManagerActivity.class);
+			controller.open();
 			dishList = controller.getAll();
 			manIntent.putExtra("allDish", dishList);
 			startActivityForResult(manIntent, 1);
 			break;
 		}
 		case R.id.main_feeln_btn: {
+			controller.open();
 			currentDish = controller.getRandom();
 			Intent mIntent = new Intent(this, DishActivity.class);
 			mIntent.putExtra("dish", currentDish);
@@ -101,10 +104,12 @@ public class MainActivity extends Activity {
 				// showToast(data.getStringExtra("delete"));
 				if (data.getStringExtra("delete").equals("true")) {
 					controller.delete(manDish.getName());
+					controller.close();
 					showToast("Deleted.." + manDish.getName());
 				} else {
 					// showToast(manDish.getName());
 					controller.insert(manDish);
+					controller.close();
 					showToast("Inserted.." + manDish.getName());
 				}
 			}
@@ -116,10 +121,12 @@ public class MainActivity extends Activity {
 				// showToast(data.getStringExtra("delete"));
 				if (data.getStringExtra("delete").equals("true")) {
 					controller.delete(manDish.getName());
+					controller.close();
 					showToast("Deleted.." + manDish.getName());
 				} else {
 					// showToast(manDish.getName());
 					controller.insert(manDish);
+					controller.close();
 					showToast("Inserted.." + manDish.getName());
 				}
 			}
