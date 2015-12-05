@@ -43,11 +43,7 @@ public class DBConnectorImpl implements DBConnector  {
 				database = new JSONDishParser(fileName,context);
 			}
 			dishes = database.getJson();
-			this.insert(new Dish("Chicken", "http://allrecipes.com/recipes/201/meat-and-poultry/chicken/"));
-			this.insert (new Dish("Beef", "http://allrecipes.com/recipes/200/meat-and-poultry/beef/"));
-			this.insert (new Dish("Fish", "http://allrecipes.com/recipes/411/seafood/fish/"));
-			this.insert (new Dish("Lasagna", "http://allrecipes.com/recipes/502/main-dish/pasta/lasagna/"));
-			this.insert (new Dish("Spaghetti", "http://allrecipes.com/search/results/?wt=spagetti&sort=re"));
+			
 			
 		} catch (IOException | ParseException e) {
 			System.out.println("File not found creating a new one");
