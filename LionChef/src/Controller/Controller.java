@@ -15,7 +15,6 @@ public class Controller {
 	private CoreLogic coreLogic;
 	
 	public Controller(String fileName, Context context){
-		System.out.println("test-controller");
 		coreLogic=new CoreLogic(fileName,context);
 	}
 

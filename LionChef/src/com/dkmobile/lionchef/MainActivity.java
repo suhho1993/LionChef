@@ -39,10 +39,8 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.i("test","testing test");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		System.out.println("test-main activity");
 		controller = new Controller("dishes.json",this.getApplicationContext());
 
 		go_btn = (Button) findViewById(R.id.main_Go_btn);

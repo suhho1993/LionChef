@@ -19,6 +19,11 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import logic.Dish;
 
+/**
+ * @author Maximilian
+ * This class is responsible for reading and writing from and to a json file. 
+ */
+
 @SuppressLint("NewApi")
 public class JSONDishParser implements Database {
 
@@ -26,12 +31,24 @@ public class JSONDishParser implements Database {
 	private Context context;
 	private final JsonParser parser;
 
+	
+	/**
+	 * @param fileName of json
+	 * @param context 
+	 * Constructor
+	 */
 	public JSONDishParser(String fileName, Context context) {
 		this.context = context;
 		this.fileName = fileName;
 		parser = new JsonParser();
 	}
 
+	/**
+	 * @return ArrayList of dishes from json file
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws ParseException
+	 */
 	public ArrayList<Dish> getJson() throws FileNotFoundException, IOException, ParseException {
 		ArrayList<Dish> dishes = new ArrayList<Dish>();
 		String jsonFile = jsonToStringFromFile();
@@ -48,8 +65,12 @@ public class JSONDishParser implements Database {
 		return dishes;
 	}
 
+	
+	/**
+	 * @param Arraylist of dishes that need to be written to json file
+	 * @throws IOException
+	 */
 	public void insertJson(ArrayList<Dish> dishes) throws IOException {
-		System.out.println("I am in close");
 		JsonObject inputObj = new JsonObject();
 		JsonArray jsonDishes = new JsonArray();
 		JsonObject newObject;
@@ -61,7 +82,6 @@ public class JSONDishParser implements Database {
 			jsonDishes.add(newObject);
 
 		}
-		System.out.println(jsonDishes);
 		inputObj.add("dishes", jsonDishes);
 		Gson gson = new Gson();
 		String jsonRepresentation = gson.toJson(inputObj);

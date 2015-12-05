@@ -1,6 +1,5 @@
 package Database;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +9,7 @@ import org.json.simple.parser.ParseException;
 import android.content.Context;
 import logic.Dish;
 
-public class DBConnectorImpl implements DBConnector  {
+public class DBConnectorImpl implements DBConnector {
 
 	private JSONDishParser database;
 	private String fileName;
@@ -22,15 +21,15 @@ public class DBConnectorImpl implements DBConnector  {
 		this.fileName = fileName;
 		this.context = context;
 		dishes = new ArrayList<>();
-	
-		//this.close();
+
+		// this.close();
 	}
 
 	public static DBConnectorImpl getInstance(String fileName, Context context) {
 		if (instance == null) {
 			System.out.println("test-DBConnector");
-			instance = new DBConnectorImpl(fileName,context);
-			
+			instance = new DBConnectorImpl(fileName, context);
+
 		}
 
 		return instance;
@@ -40,15 +39,13 @@ public class DBConnectorImpl implements DBConnector  {
 	public void open() {
 		try {
 			if (database == null) {
-				database = new JSONDishParser(fileName,context);
+				database = new JSONDishParser(fileName, context);
 			}
 			dishes = database.getJson();
-			
-			
+
 		} catch (IOException | ParseException e) {
-			System.out.println("File not found creating a new one");
-			//dishes.add(new Dish("Chicken", "http://allrecipes.com/recipes/201/meat-and-poultry/chicken/"));
-		} 
+			System.out.println("Exception caught-File does not exist");
+		}
 
 	}
 
@@ -57,8 +54,7 @@ public class DBConnectorImpl implements DBConnector  {
 		try {
 			database.insertJson(dishes);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Exception caught-IO");
 		}
 
 	}
@@ -123,8 +119,7 @@ public class DBConnectorImpl implements DBConnector  {
 	 */
 	@Override
 	public boolean delete(String name) {
-		
-		for (int i = 0; i < dishes.size(); i++) {	
+		for (int i = 0; i < dishes.size(); i++) {
 			if (dishes.get(i).getName().equals(name)) {
 				dishes.remove(i);
 				return true;
@@ -140,7 +135,6 @@ public class DBConnectorImpl implements DBConnector  {
 	 */
 	@Override
 	public Dish get(String name) {
-		Dish tempDish = null;
 		for (int i = 0; i < dishes.size(); i++) {
 			if (dishes.get(i).getName().equals(name)) {
 				return dishes.get(i);
