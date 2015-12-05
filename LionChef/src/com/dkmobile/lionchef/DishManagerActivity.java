@@ -46,7 +46,7 @@ public class DishManagerActivity extends Activity {
 		dishList = (ArrayList<Dish>) getIntent().getSerializableExtra("allDish");
 
 		myDishAdapter adapter = new myDishAdapter(this, R.layout.dish_item, dishList);
-
+		
 		list = (ListView) findViewById(R.id.man_dish_list);
 		list.setAdapter(adapter);
 

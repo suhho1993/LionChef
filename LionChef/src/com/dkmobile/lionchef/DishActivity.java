@@ -3,10 +3,10 @@ package com.dkmobile.lionchef;
 import java.io.Serializable;
 import java.util.*;
 
-import com.dkmobile.lionchef.R.string;
+
 
 import logic.Dish;
-
+//import android.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -35,10 +35,10 @@ public class DishActivity extends Activity {
 	Button map_btn;
 
 	@Override
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_result);
-
+		setContentView(R.layout.activity_result);	
 		currentDish = (Dish) getIntent().getSerializableExtra("dish");
 
 		mTextview_name = (TextView) findViewById(R.id.result_name);
