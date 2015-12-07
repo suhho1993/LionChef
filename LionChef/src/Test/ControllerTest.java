@@ -23,8 +23,8 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-	core = new CoreLogic();
-	con = new Controller();
+	//core = new CoreLogic();
+	//con = new Controller();
 	dishes = "Chicken,Beef,Fish,Cheese,Fail";
 	empty = "";
 	

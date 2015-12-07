@@ -7,6 +7,7 @@ import Database.DBConnectorImpl;
 import Database.DishCreater;
 import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
+import android.content.Context;
 
 /**
  * @author suhho CoreLogic class functionality: -Create a new dish if not
@@ -18,14 +19,13 @@ public class CoreLogic {
 
 	private Dish currentDish;
 	private DBConnectorImpl DBConnector;
-	private DishCreater dishCreater;
 
 	/**
 	 * Constructor Creates and opens new database connection
 	 */
-	public CoreLogic() {
-		DBConnector = DBConnectorImpl.getInstance();
-		DBConnector.open();
+	public CoreLogic(String fileName, Context context) {
+		DBConnector = DBConnectorImpl.getInstance(fileName,context);
+		this.open();
 	}
 
 	/**
@@ -55,6 +55,14 @@ public class CoreLogic {
 		} else {
 			throw new EmptyArrayException("Empty  array");
 		}
+	}
+	
+	public void open(){
+		DBConnector.open();
+	}
+	
+	public void close(){
+		DBConnector.close();
 	}
 	
 	public boolean insert(Dish dish){

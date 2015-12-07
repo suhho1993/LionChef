@@ -24,7 +24,7 @@ public class JSONDishParserTest extends TestCase {
 	protected void setUp() throws Exception {
 		
 		super.setUp();
-		p = new JSONDishParser();
+		//p = new JSONDishParser();
 	}
 
 	protected void tearDown() throws Exception {

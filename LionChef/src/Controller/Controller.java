@@ -6,6 +6,7 @@ import com.dkmobile.lionchef.MainActivity;
 
 import Exceptions.EmptyArrayException;
 import Exceptions.NoDishException;
+import android.content.Context;
 import android.content.Intent;
 import logic.CoreLogic;
 import logic.Dish;
@@ -13,10 +14,9 @@ import logic.Dish;
 public class Controller {
 	private CoreLogic coreLogic;
 	
-	public Controller(){
-		coreLogic=new CoreLogic();
+	public Controller(String fileName, Context context){
+		coreLogic=new CoreLogic(fileName,context);
 	}
-	
 
 	/**
 	 * @param dishList Strings
@@ -33,6 +33,14 @@ public class Controller {
 		}
 		coreLogic.setCurrentDish(v);
 		return coreLogic.getCurrentDish();
+	}
+	
+	public void open(){
+		coreLogic.open();
+	}
+	
+	public void close(){
+		coreLogic.close();
 	}
 	
 	public Dish getRandom(){

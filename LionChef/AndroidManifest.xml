@@ -38,7 +38,7 @@
             android:name=".DishManagerActivity"
             android:label="Manager" >
         </activity>
-         <activity
+        <activity
             android:name=".RecipeEdit"
             android:label="Edit" >
         </activity>
