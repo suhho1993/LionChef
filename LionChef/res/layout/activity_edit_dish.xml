@@ -21,7 +21,6 @@
             android:id="@+id/edit_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
             android:ems="10" />
 
         <Space
@@ -39,21 +38,21 @@
             android:id="@+id/edit_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-              android:text="Url"
             android:ems="10" />
 
         <Button
             android:id="@+id/edit_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="save"
-            android:onClick="onClick" />
-             <Button
+            android:onClick="onClick"
+            android:text="save" />
+
+        <Button
             android:id="@+id/edit_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="delete"
-            android:onClick="onClick" />
+            android:onClick="onClick"
+            android:text="delete" />
     </LinearLayout>
 
 </LinearLayout>

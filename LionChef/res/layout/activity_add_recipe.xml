@@ -36,8 +36,7 @@
             android:id="@+id/add_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:text="Url" />
+            android:ems="10" />
 
         <Button
             android:id="@+id/add_save"

@@ -3,8 +3,6 @@ package com.dkmobile.lionchef;
 import java.io.Serializable;
 import java.util.*;
 
-
-
 import logic.Dish;
 //import android.R;
 import android.app.Activity;
@@ -30,21 +28,25 @@ public class DishActivity extends Activity {
 	private Dish currentDish;
 
 	String url;
-	Button recipe_btn;
-	Button man_btn;
-	// Button map_btn;
+	private Button recipe_btn;
+	private Button man_btn;
+	private Button map_btn;
 
 	@Override
-	
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_result);	
+		setContentView(R.layout.activity_result);
 		currentDish = (Dish) getIntent().getSerializableExtra("dish");
 
 		mTextview_name = (TextView) findViewById(R.id.result_name);
 
 		mTextview_name.setText(currentDish.getName());
 		url = currentDish.getUrl();
+
+		map_btn = (Button) findViewById(R.id.Map_btn);
+		map_btn.setOnClickListener(Displayrecipe);
+
 		recipe_btn = (Button) findViewById(R.id.Recipe_btn);
 		recipe_btn.setOnClickListener(Displayrecipe);
 
@@ -77,11 +79,15 @@ public class DishActivity extends Activity {
 				recipeIntent1.putExtra("Dish", currentDish);
 				startActivityForResult(recipeIntent1, 13);
 				break;
+			case R.id.Map_btn:
+				Intent mapIntent = new Intent(DishActivity.this, MapActivity.class);
+				startActivity(mapIntent);
+				break;
 			}
 
 		}
 	};
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
@@ -89,13 +95,13 @@ public class DishActivity extends Activity {
 			if (resultCode == RESULT_OK) {
 				Dish dish = (Dish) data.getSerializableExtra("Dish");
 				Intent curDish = new Intent();
-				
+
 				if (data.getStringExtra("delete").equals("true")) {
-					curDish.putExtra("delete","true");
+					curDish.putExtra("delete", "true");
 					curDish.putExtra("Dish", dish);
 				} else {
 					curDish.putExtra("Dish", dish);
-					curDish.putExtra("delete","false");
+					curDish.putExtra("delete", "false");
 				}
 				setResult(RESULT_OK, curDish);
 				finish();
