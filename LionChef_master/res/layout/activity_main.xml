@@ -26,10 +26,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="12"
+            android:layout_weight="10"
             android:inputType="textCapWords"
-            android:text="Enter Dishes here" />
+            android:hint="Enter Dishes here (ex. beef,rice,..)" />
 
         <Button
+            android:layout_weight="1"
             android:id="@+id/main_Go_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

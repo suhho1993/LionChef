@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/lionchef"
     android:orientation="vertical"
     tools:context="com.dkmobile.lionchef.DishActivity" >
 
@@ -10,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="15dp"
         android:text="This is what you want"
         android:textSize="25sp" />
 
@@ -19,30 +21,40 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:textColor="#f10e3f"
         android:text="@string/current_dish"
         android:textSize="25dp" />
 
-    <Button
-        android:id="@+id/Map_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="onClick"
-        android:text="Find on Map" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <Button
-        android:id="@+id/Recipe_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Find Recipe" />
+        <Button
+            android:id="@+id/Map_btn"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="Find on Map" />
 
-    <Button
-        android:id="@+id/res_man_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="onClick"
-        android:text="Mange Recipe" />
+        <Button
+            android:id="@+id/Recipe_btn"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Find 
+            Recipe" />
+
+        <Button
+            android:id="@+id/res_man_btn"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="Mange Recipe" />
+    </LinearLayout>
 
 </LinearLayout>
