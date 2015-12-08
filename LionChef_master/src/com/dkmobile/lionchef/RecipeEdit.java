@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import logic.Dish;
 
 public class RecipeEdit extends Activity {
-
+	private Toast mToast;
 	Dish currentDish;
 	EditText name;
 	EditText url;
@@ -40,6 +41,16 @@ public class RecipeEdit extends Activity {
 			String mUrl;
 			mName = name.getText().toString();
 			mUrl = url.getText().toString();
+			if (mName.equals("") && mUrl.equals("")) {
+				showToast("Enter Name & Url");
+				break;
+			} else if (mName.equals("")) {
+				showToast("Enter Name");
+				break;
+			} else if (mUrl.equals("")) {
+				showToast("Enter Name");
+				break;
+			}
 			Dish dish = new Dish(mName, mUrl);
 			Intent curDish = new Intent();
 			curDish.putExtra("Dish", dish);
@@ -48,7 +59,7 @@ public class RecipeEdit extends Activity {
 			finish();
 			break;
 		}
-		case R.id.edit_delete:{
+		case R.id.edit_delete: {
 			String mName;
 			String mUrl;
 			mName = name.getText().toString();
@@ -60,9 +71,18 @@ public class RecipeEdit extends Activity {
 			setResult(RESULT_OK, curDish);
 			finish();
 			break;
-		
+
 		}
 		}
+	}
+
+	private void showToast(String text) {
+		if (mToast == null) {
+			mToast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+		} else {
+			mToast.setText(text);
+		}
+		mToast.show();
 	}
 
 }
