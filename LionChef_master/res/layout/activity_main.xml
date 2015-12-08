@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/lionchef"
     android:orientation="vertical"
     tools:context="com.dkmobile.lionchef.MainActivity" >
 
@@ -9,15 +10,13 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/greeting" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/introduction" />
+        android:text="@string/greeting"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textSize="25dp" />
 
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -27,7 +26,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="12"
-            android:inputType="textCapWords" />
+            android:inputType="textCapWords"
+            android:text="Enter Dishes here" />
 
         <Button
             android:id="@+id/main_Go_btn"
@@ -39,21 +39,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/main_man_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
             android:onClick="onClick"
-            android:text="@string/recipe_manager" />
+            android:text="Recipe Manager" />
 
         <Button
             android:id="@+id/main_feeln_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             android:onClick="onClick"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
             android:text="@string/feeln_lucky" />
     </LinearLayout>
 
