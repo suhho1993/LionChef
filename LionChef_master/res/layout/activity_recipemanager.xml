@@ -14,7 +14,9 @@
         <ListView
             android:id="@+id/man_dish_list"
             android:layout_width="match_parent"
-            android:layout_height="300dp" >
+            android:layout_height="300dp"
+            android:divider="#000"
+            android:dividerHeight="0.67dp" >
         </ListView>
 
         <Button

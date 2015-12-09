@@ -34,7 +34,7 @@
         android:id="@+id/add_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="http://"
+        android:hint="http://"
         android:ems="10" />
 
     <Button
